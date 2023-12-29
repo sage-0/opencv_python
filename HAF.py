@@ -1,8 +1,8 @@
 import cv2
 import numpy as np
 
-cap = cv2.VideoCapture("./images/30km制限.avi")  # カメラを起動する (引数はカメラのデバイス番号)
-# cap = cv2.VideoCapture(0)
+# cap = cv2.VideoCapture("./images/30km制限.avi")  # カメラを起動する (引数はカメラのデバイス番号)
+cap = cv2.VideoCapture(1)
 
 if not cap.isOpened():
     print("Error: Could not open video capture.")

@@ -2,17 +2,16 @@ import numpy as np
 import cv2
 
 # モデルファイルのパス
-prototxt_path = 'deploy.prototxt'
-caffemodel_path = 'res10_300x300_ssd_iter_140000.caffemodel'
+prototxt_path = './AIscan/deploy.prototxt'
+caffemodel_path = './AIscan/res10_300x300_ssd_iter_140000.caffemodel'
 
-# OpenCVでカメラをオープン
-cap = cv2.VideoCapture(1)  # 0はデフォルトのカメラを指定します
+cap = cv2.VideoCapture(1)
 
 # 顔検出用のモデルを読み込む
 net = cv2.dnn.readNet(prototxt_path, caffemodel_path)
 
 while True:
-    ret, frame = cap.read()  # カメラからフレームを読み取ります
+    ret, frame = cap.read()
     if not ret:
         break
 
@@ -34,7 +33,7 @@ while True:
     # 画像を表示
     cv2.imshow('Face Detection', frame)
 
-    if cv2.waitKey(1) & 0xFF == ord('q'):  # "q" キーを押すとループを終了
+    if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
 # カメラをリリースし、ウィンドウを閉じる

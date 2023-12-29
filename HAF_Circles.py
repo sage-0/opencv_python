@@ -14,8 +14,9 @@ while True:
     tmp_img = img.copy()
     gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     g_blur = cv2.GaussianBlur(gray_img, (9, 9), 2)
+    canyedge = cv2.Canny
 
-    circles = cv2.HoughCircles(g_blur, cv2.HOUGH_GRADIENT, dp=2, minDist=g_blur.shape[0] / 6, param1=200, param2=80, minRadius=1, maxRadius=35)
+    circles = cv2.HoughCircles(g_blur, cv2.HOUGH_GRADIENT, dp=5, minDist=g_blur.shape[0] / 6, param1=200, param2=80, minRadius=1, maxRadius=30)
 
     if circles is not None:
         circles = circles[0].astype(int)
